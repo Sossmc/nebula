@@ -1,19 +1,21 @@
 {
-  "name": "nebula",
-  "version": "1.0.0",
+  "name": "@sossmc/nebula",
+  "version": "0.0.1",
   "description": "a visualization grammar for coordination between visualizations",
-  "main": "index.js",
+  "main": "dist/nebula-vis.min.js",
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "webpack",
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "lint": "eslint --ext .js src test --max-warnings 0 --fix",
     "test": "mocha --require @babel/register",
     "commit": "git-cz"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nebula-Vis/Nebula.git"
+    "url": "git+https://github.com/sossmc/nebula.git"
   },
   "author": "Ran Chen",
   "license": "ISC",
@@ -41,9 +43,11 @@
     "style-loader": "^1.1.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "nebula-vislib": "git+ssh://git@github.com:Sossmc/nebula-vislib.git#v0.0.3",
     "csv-parse": "^4.9.0",
     "d3": "^5.15.0",
     "d3-ez": "^3.3.15",

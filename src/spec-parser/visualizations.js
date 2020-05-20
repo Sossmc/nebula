@@ -1,25 +1,4 @@
-import Scatterplot from '@/visualizations/scatter-plot'
-import Areachart from '@/visualizations/area-chart'
-import Barchart from '@/visualizations/bar-chart'
-import LineUp from '@/visualizations/line-up'
-import Linechart from '@/visualizations/line-chart'
-import NodeLinkGraph from '@/visualizations/node-link-graph'
-import Select from '@/visualizations/select'
-import Button from '@/visualizations/button'
-import Input from '@/visualizations/input'
-import Slider from '@/visualizations/slider'
-import VegaLite from '@/visualizations/vega-lite'
-import PieChart from '@/visualizations/pie-chart'
-import DonutChart from '@/visualizations/donut-chart'
-import SectorChart from '@/visualizations/sector-chart'
-import SunburstChart from '@/visualizations/sunburst-chart'
-import Map from '@/visualizations/Map'
-import Heatmap2D from '@/visualizations/heatmap-2D'
-import Tree from '@/visualizations/tree'
-import TreeMap from '@/visualizations/tree-map'
-import ParallelCoordinates from '@/visualizations/parallel-coordinates'
-import RadialCoordinates from '@/visualizations/radial-coordinates'
-import DangerousHtml from '@/visualizations/dangerous-html'
+import NebulaVisLib from 'nebula-vislib'
 import ReactiveProperty from '@/reactive-prop'
 
 export default class VisualizationsSpecParser {
@@ -87,6 +66,7 @@ class VisualizationsManager {
   }
 
   mount() {
+    console.log(this._visualizations)
     this._visualizations.forEach((visualization) => {
       visualization.mount()
     })
@@ -143,54 +123,9 @@ class Visualization {
   }
 
   _generateInstance(type, props) {
-    switch (type.toLowerCase()) {
-      case 'scatterplot':
-        return new Scatterplot(props)
-      case 'areachart':
-        return new Areachart(props)
-      case 'barchart':
-        return new Barchart(props)
-      case 'lineup':
-        return new LineUp(props)
-      case 'linechart':
-        return new Linechart(props)
-      case 'graph':
-        return new NodeLinkGraph(props)
-      case 'select':
-        return new Select(props)
-      case 'tree':
-        return new Tree(props)
-      case 'treemap':
-        return new TreeMap(props)
-      case 'parallel':
-        return new ParallelCoordinates(props)
-      case 'radial':
-        return new RadialCoordinates(props)
-      case 'button':
-        return new Button(props)
-      case 'input':
-        return new Input(props)
-      case 'slider':
-        return new Slider(props)
-      case 'vegalite':
-        return new VegaLite(props)
-      case 'piechart':
-        return new PieChart(props)
-      case 'donutchart':
-        return new DonutChart(props)
-      case 'sectorchart':
-        return new SectorChart(props)
-      case 'sunburstchart':
-        return new SunburstChart(props)
-      case 'map':
-        return new Map(props)
-      case 'heatmap2d':
-        return new Heatmap2D(props)
-      case 'dangerous-html':
-        return new DangerousHtml(props)
-      default:
-        throw new SyntaxError(`No such visualization ${type.toLowerCase()}.`)
-    }
+    const Constructor = NebulaVisLib[type.toLowerCase()]
+    if (Constructor) return new Constructor(props)
+    else throw new SyntaxError(`No such visualization ${type.toLowerCase()}.`)
   }
 
   mount() {

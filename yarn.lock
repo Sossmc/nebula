@@ -4539,6 +4539,25 @@ natural-compare@^1.4.0:
   resolved "https://registry.npm.taobao.org/natural-compare/download/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+"nebula-vislib@git+ssh://git@github.com:Sossmc/nebula-vislib.git#v0.0.3":
+  version "0.0.3"
+  resolved "git+ssh://git@github.com:Sossmc/nebula-vislib.git#e23daf5b679b4edc0f579e5a7a3814cdcfe03cea"
+  dependencies:
+    csv-parse "^4.9.0"
+    d3 "^5.15.0"
+    d3-ez "^3.3.15"
+    leaflet "^1.6.0"
+    leaflet-draw "^1.0.4"
+    leaflet.chinatmsproviders "^3.0.2"
+    leaflet.heat "^0.2.0"
+    lineupjs "^3.3.0"
+    lodash "^4.17.15"
+    turf-inside "^3.0.12"
+    vega "^5.10.0"
+    vega-embed "^6.5.2"
+    vega-lite "^4.8.1"
+    vue "^2.6.11"
+
 negotiator@0.6.2:
   version "0.6.2"
   resolved "https://registry.npm.taobao.org/negotiator/download/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
@@ -6866,6 +6885,13 @@ webpack-log@^2.0.0:
   dependencies:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
+
+webpack-merge@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/webpack-merge/download/webpack-merge-4.2.2.tgz#a27c52ea783d1398afd2087f547d7b9d2f43634d"
+  integrity sha1-onxS6ng9E5iv0gh/VH17nS9DY00=
+  dependencies:
+    lodash "^4.17.15"
 
 webpack-sources@^1.4.0, webpack-sources@^1.4.1:
   version "1.4.3"
