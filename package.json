@@ -1,6 +1,6 @@
 {
   "name": "@sossmc/nebula",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a visualization grammar for coordination between visualizations",
   "main": "dist/nebula-vis.min.js",
   "scripts": {
